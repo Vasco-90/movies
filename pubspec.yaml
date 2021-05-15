@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^2.1.0
+  http: ^0.13.3
   sizer: ^2.0.13
   flutter_bloc: ^7.0.0
   freezed: ^0.14.2
