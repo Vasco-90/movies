@@ -14,6 +14,6 @@ class GlobalProvider extends StatelessWidget {
         ),
         home: TheMovieApp(),
       ),
-    ),
+    );
   }
 }
