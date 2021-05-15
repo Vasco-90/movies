@@ -11,6 +11,7 @@ class MovieCard extends StatelessWidget {
     return Stack(
       children: [
         Card(
+          elevation: 5,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: Column(
