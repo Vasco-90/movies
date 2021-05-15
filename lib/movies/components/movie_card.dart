@@ -14,6 +14,7 @@ class MovieCard extends StatelessWidget {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ClipRRect(
@@ -26,31 +27,27 @@ class MovieCard extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Text(
-                    'Tom Clancy\'s Gnadenlos',
-                    maxLines: 2,
-                    softWrap: true,
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Text(
+                  'Tom Clancy\'s Gnadenlos',
+                  maxLines: 2,
+                  softWrap: true,
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Text(
-                    '29. Apr 2021',
-                    maxLines: 2,
-                    softWrap: true,
-                    style: TextStyle(
-                      fontSize: 10.sp,
-                      color: Colors.grey.withOpacity(0.6),
-                    ),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
+                child: Text(
+                  '29. Apr 2021',
+                  maxLines: 2,
+                  softWrap: true,
+                  style: TextStyle(
+                    fontSize: 10.sp,
+                    color: Colors.grey.withOpacity(0.6),
                   ),
                 ),
               ),
