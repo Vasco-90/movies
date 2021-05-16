@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:movies/movies/model/movie.dart';
 import 'package:sizer/sizer.dart';
+import 'package:intl/intl.dart';
 
 class MovieCard extends StatelessWidget {
-  const MovieCard({
+  MovieCard({
     Key? key,
     required this.movie,
   }) : super(key: key);
 
   final Movie movie;
+  final DateFormat _formatter = DateFormat('dd.MM.yyyy');
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +55,7 @@ class MovieCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
                 child: Text(
-                  '29. Apr 2021',
+                  formatReleaseDate(movie.releaseDate),
                   maxLines: 2,
                   softWrap: true,
                   style: TextStyle(
@@ -75,5 +77,9 @@ class MovieCard extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String formatReleaseDate(String date) {
+    return _formatter.format(DateTime.parse(date));
   }
 }
