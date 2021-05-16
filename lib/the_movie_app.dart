@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies/movies/movie_list.dart';
+import 'package:movies/favorites/favorite_screen.dart';
+import 'package:movies/movies/movie_screen.dart';
 
 class TheMovieApp extends StatelessWidget {
   @override
@@ -10,7 +11,11 @@ class TheMovieApp extends StatelessWidget {
         title: Text('The Movie App'),
         actions: [
           IconButton(
-            onPressed: () => null,
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => FavoriteScreen(),
+              ),
+            ),
             icon: Icon(
               Icons.favorite_rounded,
               color: Colors.red,
@@ -18,7 +23,7 @@ class TheMovieApp extends StatelessWidget {
           )
         ],
       ),
-      body: MovieList(),
+      body: MovieScreen(),
     );
   }
 }

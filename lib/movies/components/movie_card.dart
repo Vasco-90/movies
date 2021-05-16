@@ -88,6 +88,10 @@ class MovieCard extends StatelessWidget {
   }
 
   String formatReleaseDate(String date) {
-    return _formatter.format(DateTime.parse(date));
+    try {
+      return _formatter.format(DateTime.parse(date));
+    } catch (e) {
+      return date;
+    }
   }
 }
