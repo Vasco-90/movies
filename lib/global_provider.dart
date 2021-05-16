@@ -19,7 +19,9 @@ class GlobalProvider extends StatelessWidget {
         child: MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) => MovieCubit(),
+              create: (context) => MovieCubit(
+                movieService: context.read(),
+              )..loadPopularMovies(),
             )
           ],
           child: MaterialApp(

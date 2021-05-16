@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:movies/movies/model/movie.dart';
 import 'package:sizer/sizer.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({
     Key? key,
+    required this.movie,
   }) : super(key: key);
+
+  final Movie movie;
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +27,15 @@ class MovieCard extends StatelessWidget {
                   topLeft: Radius.circular(10),
                   topRight: Radius.circular(10),
                 ),
-                child: Image.asset(
-                  'assets/images/cover.jpg',
+                child: Image.network(
+                  'https://image.tmdb.org/t/p/w500/${movie.poster ?? movie.thumbnail}',
                   fit: BoxFit.cover,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Text(
-                  'Tom Clancy\'s Gnadenlos',
+                  movie.title,
                   maxLines: 2,
                   softWrap: true,
                   style: TextStyle(
