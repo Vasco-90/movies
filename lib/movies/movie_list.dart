@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies/favorites/cubit/favorite_cubit.dart';
 import 'package:movies/movies/components/movie_card.dart';
 import 'package:movies/movies/cubit/movie_cubit.dart';
 
@@ -53,8 +54,17 @@ class _MovieListState extends State<MovieList> {
               itemBuilder: (context, index) =>
                   index >= state.result.results.length
                       ? Center(child: CircularProgressIndicator.adaptive())
-                      : MovieCard(
-                          movie: state.result.results[index],
+                      : Builder(
+                          builder: (context) {
+                            final favoriteList =
+                                context.watch<FavoriteCubit>().state.movies;
+                            return MovieCard(
+                              movie: state.result.results[index],
+                              isFavorite: favoriteList.contains(
+                                state.result.results[index],
+                              ),
+                            );
+                          },
                         ),
             ),
           ),

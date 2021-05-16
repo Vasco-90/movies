@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:movies/favorites/cubit/favorite_cubit.dart';
 import 'package:movies/movies/model/movie.dart';
 import 'package:sizer/sizer.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MovieCard extends StatelessWidget {
   MovieCard({
     Key? key,
     required this.movie,
+    required this.isFavorite,
   }) : super(key: key);
 
   final Movie movie;
   final DateFormat _formatter = DateFormat('dd.MM.yyyy');
+  final bool isFavorite;
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +75,12 @@ class MovieCard extends StatelessWidget {
         Positioned(
           right: 10,
           top: 10,
-          child: Icon(
-            Icons.favorite,
-            color: Colors.red,
+          child: GestureDetector(
+            onTap: () => context.read<FavoriteCubit>().toggleFavorite(movie),
+            child: Icon(
+              isFavorite ? Icons.favorite : Icons.favorite_border,
+              color: Colors.red,
+            ),
           ),
         ),
       ],

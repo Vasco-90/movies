@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movies/favorites/cubit/favorite_cubit.dart';
 import 'package:movies/movies/cubit/movie_cubit.dart';
 import 'package:movies/movies/service/movie_service.dart';
 import 'package:movies/the_movie_app.dart';
@@ -22,6 +23,9 @@ class GlobalProvider extends StatelessWidget {
               create: (context) => MovieCubit(
                 movieService: context.read(),
               )..loadPopularMovies(),
+            ),
+            BlocProvider(
+              create: (context) => FavoriteCubit(),
             )
           ],
           child: MaterialApp(
