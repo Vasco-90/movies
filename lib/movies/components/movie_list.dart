@@ -3,6 +3,7 @@ import 'package:movies/favorites/cubit/favorite_cubit.dart';
 import 'package:movies/movies/components/movie_card.dart';
 import 'package:movies/movies/model/movie.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sizer/sizer.dart';
 
 class MovieList extends StatelessWidget {
   const MovieList({
@@ -25,7 +26,7 @@ class MovieList extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         shrinkWrap: false,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
+          crossAxisCount: SizerUtil.orientation == Orientation.portrait ? 2 : 4,
           childAspectRatio: 2 / 4,
         ),
         itemCount: canUpdateList ? movies.length + 1 : movies.length,
