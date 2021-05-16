@@ -30,6 +30,12 @@ class MovieCard extends StatelessWidget {
                 child: Image.network(
                   'https://image.tmdb.org/t/p/w500/${movie.poster ?? movie.thumbnail}',
                   fit: BoxFit.cover,
+                  loadingBuilder: (context, child, loadingProgress) =>
+                      loadingProgress == null
+                          ? child
+                          : Center(
+                              child: const CircularProgressIndicator.adaptive(),
+                            ),
                 ),
               ),
               Padding(

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:movies/movies/components/movie_card.dart';
-import 'package:movies/movies/cubit/movie_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies/movies/model/movie_result.dart';
+import 'package:movies/movies/cubit/movie_cubit.dart';
+import 'package:movies/movies/movie_list.dart';
 
 class TheMovieApp extends StatelessWidget {
   @override
@@ -32,29 +30,6 @@ class TheMovieApp extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
-  }
-}
-
-class MovieList extends StatelessWidget {
-  const MovieList({
-    Key? key,
-    required this.result,
-  }) : super(key: key);
-
-  final MovieResult result;
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-      padding: const EdgeInsets.all(8),
-      shrinkWrap: false,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, childAspectRatio: 2 / 4),
-      itemCount: result.results.length,
-      itemBuilder: (context, index) => MovieCard(
-        movie: result.results[index],
       ),
     );
   }
