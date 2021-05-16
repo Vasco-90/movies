@@ -52,18 +52,19 @@ class MovieCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
-                child: Text(
-                  formatReleaseDate(movie.releaseDate),
-                  maxLines: 2,
-                  softWrap: true,
-                  style: TextStyle(
-                    fontSize: 10.sp,
-                    color: Colors.grey.withOpacity(0.6),
+              if (movie.releaseDate != null)
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
+                  child: Text(
+                    formatReleaseDate(movie.releaseDate!),
+                    maxLines: 2,
+                    softWrap: true,
+                    style: TextStyle(
+                      fontSize: 10.sp,
+                      color: Colors.grey.withOpacity(0.6),
+                    ),
                   ),
                 ),
-              ),
             ],
           ),
         ),

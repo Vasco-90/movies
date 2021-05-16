@@ -6,9 +6,9 @@ part 'movie.g.dart';
 class Movie {
   Movie({
     required this.id,
-    required this.thumbnail,
+    this.thumbnail,
     required this.title,
-    required this.releaseDate,
+    this.releaseDate,
     this.poster,
   });
 
@@ -17,7 +17,7 @@ class Movie {
   final int id;
 
   @JsonKey(name: 'backdrop_path')
-  final String thumbnail;
+  final String? thumbnail;
 
   @JsonKey(name: 'poster_path')
   final String? poster;
@@ -25,5 +25,5 @@ class Movie {
   final String title;
 
   @JsonKey(name: 'release_date')
-  final String releaseDate;
+  final String? releaseDate;
 }

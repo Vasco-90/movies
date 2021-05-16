@@ -22,4 +22,23 @@ class MovieCubit extends Cubit<MovieState> {
       print(e);
     }
   }
+
+  void loadMorePages() async {
+    state.maybeMap(
+      loaded: (state) async {
+        if (state.result.page >= state.result.totalPages) {
+          return;
+        }
+        final newResult =
+            await movieService.getPopularMovies(state.result.page + 1);
+
+        emit(
+          state.copyWith(
+            result: newResult..results.insertAll(0, state.result.results),
+          ),
+        );
+      },
+      orElse: () => null,
+    );
+  }
 }

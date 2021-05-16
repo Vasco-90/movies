@@ -9,9 +9,9 @@ part of 'movie.dart';
 Movie _$MovieFromJson(Map<String, dynamic> json) {
   return Movie(
     id: json['id'] as int,
-    thumbnail: json['backdrop_path'] as String,
+    thumbnail: json['backdrop_path'] as String?,
     title: json['title'] as String,
-    releaseDate: json['release_date'] as String,
+    releaseDate: json['release_date'] as String?,
     poster: json['poster_path'] as String?,
   );
 }
