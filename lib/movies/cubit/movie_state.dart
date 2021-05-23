@@ -5,6 +5,6 @@ abstract class MovieState with _$MovieState {
   const factory MovieState.initial() = _Initial;
   const factory MovieState.loaded({
     required MovieResult result,
-    @Default(null) dynamic? error,
+    @Default(null) dynamic error,
   }) = _Loaded;
 }

@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$FavoriteStateTearOff {
   const _$FavoriteStateTearOff();
 
-  _FavoriteState call({List<Movie> movies = const []}) {
+  _FavoriteState call({List<Movie> movies = const <Movie>[]}) {
     return _FavoriteState(
       movies: movies,
     );
@@ -102,9 +102,9 @@ class __$FavoriteStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FavoriteState implements _FavoriteState {
-  const _$_FavoriteState({this.movies = const []});
+  const _$_FavoriteState({this.movies = const <Movie>[]});
 
-  @JsonKey(defaultValue: const [])
+  @JsonKey(defaultValue: const <Movie>[])
   @override
   final List<Movie> movies;
 

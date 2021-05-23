@@ -20,7 +20,7 @@ class _$MovieStateTearOff {
     return const _Initial();
   }
 
-  _Loaded loaded({required MovieResult result, dynamic? error = null}) {
+  _Loaded loaded({required MovieResult result, dynamic error = null}) {
     return _Loaded(
       result: result,
       error: error,
@@ -36,13 +36,13 @@ mixin _$MovieState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(MovieResult result, dynamic? error) loaded,
+    required TResult Function(MovieResult result, dynamic error) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(MovieResult result, dynamic? error)? loaded,
+    TResult Function(MovieResult result, dynamic error)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -115,7 +115,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(MovieResult result, dynamic? error) loaded,
+    required TResult Function(MovieResult result, dynamic error) loaded,
   }) {
     return initial();
   }
@@ -124,7 +124,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(MovieResult result, dynamic? error)? loaded,
+    TResult Function(MovieResult result, dynamic error)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -164,7 +164,7 @@ abstract class _Initial implements MovieState {
 abstract class _$LoadedCopyWith<$Res> {
   factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
       __$LoadedCopyWithImpl<$Res>;
-  $Res call({MovieResult result, dynamic? error});
+  $Res call({MovieResult result, dynamic error});
 }
 
 /// @nodoc
@@ -189,7 +189,7 @@ class __$LoadedCopyWithImpl<$Res> extends _$MovieStateCopyWithImpl<$Res>
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as dynamic,
     ));
   }
 }
@@ -203,7 +203,7 @@ class _$_Loaded implements _Loaded {
   final MovieResult result;
   @JsonKey(defaultValue: null)
   @override
-  final dynamic? error;
+  final dynamic error;
 
   @override
   String toString() {
@@ -235,7 +235,7 @@ class _$_Loaded implements _Loaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(MovieResult result, dynamic? error) loaded,
+    required TResult Function(MovieResult result, dynamic error) loaded,
   }) {
     return loaded(result, error);
   }
@@ -244,7 +244,7 @@ class _$_Loaded implements _Loaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(MovieResult result, dynamic? error)? loaded,
+    TResult Function(MovieResult result, dynamic error)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -277,11 +277,11 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements MovieState {
-  const factory _Loaded({required MovieResult result, dynamic? error}) =
+  const factory _Loaded({required MovieResult result, dynamic error}) =
       _$_Loaded;
 
   MovieResult get result => throw _privateConstructorUsedError;
-  dynamic? get error => throw _privateConstructorUsedError;
+  dynamic get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
 }

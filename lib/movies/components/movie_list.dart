@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/favorites/cubit/favorite_cubit.dart';
+import 'package:movies/movie-page/movie_detail_page.dart';
 import 'package:movies/movies/components/movie_card.dart';
 import 'package:movies/movies/model/movie.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
 class MovieList extends StatelessWidget {
@@ -36,10 +37,19 @@ class MovieList extends StatelessWidget {
                 builder: (context) {
                   final favoriteList =
                       context.watch<FavoriteCubit>().state.movies;
-                  return MovieCard(
-                    movie: movies[index],
-                    isFavorite: favoriteList.contains(
-                      movies[index],
+                  return GestureDetector(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MovieDetailPage(
+                            movie: movies[index],
+                          ),
+                        )),
+                    child: MovieCard(
+                      movie: movies[index],
+                      isFavorite: favoriteList.contains(
+                        movies[index],
+                      ),
                     ),
                   );
                 },

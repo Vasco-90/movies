@@ -33,15 +33,20 @@ class MovieCard extends StatelessWidget {
                   topLeft: Radius.circular(10),
                   topRight: Radius.circular(10),
                 ),
-                child: Image.network(
-                  'https://image.tmdb.org/t/p/w500/${movie.poster ?? movie.thumbnail}',
-                  fit: BoxFit.cover,
-                  loadingBuilder: (context, child, loadingProgress) =>
-                      loadingProgress == null
-                          ? child
-                          : Center(
-                              child: const CircularProgressIndicator.adaptive(),
-                            ),
+                child: Hero(
+                  transitionOnUserGestures: true,
+                  tag: movie.id,
+                  child: Image.network(
+                    'https://image.tmdb.org/t/p/w500/${movie.poster ?? movie.thumbnail}',
+                    fit: BoxFit.cover,
+                    loadingBuilder: (context, child, loadingProgress) =>
+                        loadingProgress == null
+                            ? child
+                            : Center(
+                                child:
+                                    const CircularProgressIndicator.adaptive(),
+                              ),
+                  ),
                 ),
               ),
               Padding(
